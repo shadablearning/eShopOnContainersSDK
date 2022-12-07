@@ -29,6 +29,7 @@ public class CatalogIntegrationEventService : ICatalogIntegrationEventService, I
             _logger.LogInformation("----- Publishing integration event: {IntegrationEventId_published} from {AppName} - ({@IntegrationEvent})", evt.Id, Program.AppName, evt);
 
             await _eventLogService.MarkEventAsInProgressAsync(evt.Id);
+            //TO test : Make the Queue fan out and add one testing queue and check if Data is coming.
             _eventBus.Publish(evt);
             await _eventLogService.MarkEventAsPublishedAsync(evt.Id);
         }

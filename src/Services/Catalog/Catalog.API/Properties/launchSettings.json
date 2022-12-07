@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:57424/",
+      "applicationUrl": "http://localhost:5000/",
       "sslPort": 0
     }
   },
@@ -13,10 +13,16 @@
       "launchBrowser": true,
       "launchUrl": "/swagger",
       "environmentVariables": {
-        "ConnectionString": "server=localhost,5433;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word",
-        "Serilog:LogstashgUrl": "http://locahost:8080",
+        "AzureServiceBusEnabled": false,
+        "AzureStorageEnabled": false,
+        "EventBusRetryCount": 5,
+        "UseVault": false,
+        "PicBaseUrl": "http://localhost:5000/api/v1/catalog/items/[0]/pic/",
         "ASPNETCORE_ENVIRONMENT": "Development",
+        "SubscriptionClientName": "Catalog",
+        "ConnectionString": "server=DESKTOP-IIEDPU3;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word",
         "EventBusConnection": "localhost",
+        "Serilog:LogstashgUrl": "http://locahost:8080",
         "Serilog:SeqServerUrl": "http://locahost:5340"
       }
     },
